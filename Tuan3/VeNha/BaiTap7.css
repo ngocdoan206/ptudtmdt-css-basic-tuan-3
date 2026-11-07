@@ -4,6 +4,7 @@ body {
 }
 
 #wrapper {
+    box-shadow: -8px 10px 12px rgba(0, 0, 0, 0.45);
     box-sizing: border-box;
     width: 500px;
     padding: 10px;
