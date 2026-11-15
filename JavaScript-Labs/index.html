@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>JavaScript Labs – Đoàn Thị Thu Ngọc</title>
+  <meta name="description" content="Trang tổng hợp 3 bài thực hành JavaScript: Language Foundations, DOM and Events, jQuery.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;500;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+ 
+  <header class="topbar">
+    <a class="brand" href="#top">JS<span>Labs</span></a>
+    <nav class="nav" aria-label="Điều hướng">
+      <a href="#gioi-thieu">Giới thiệu</a>
+      <a href="#labs">Các bài Lab</a>
+      <a href="#kien-thuc">Kiến thức</a>
+      <a href="#tu-danh-gia">Tự đánh giá</a>
+    </nav>
+    <button id="themeBtn" class="theme-btn" type="button" aria-label="Đổi giao diện sáng/tối">◐</button>
+  </header>
+ 
+  <main id="top">
+ 
+    <!-- 3.1 Thông tin cá nhân -->
+    <section class="hero" id="gioi-thieu">
+      <div class="avatar" id="avatar">
+        <span class="initials" aria-hidden="true">TN</span>
+        <img src="images/anhcanhan.jpg" alt="Ảnh đại diện của Đoàn Thị Thu Ngọc">
+      </div>
+      <div class="hero-text">
+        <p class="eyebrow">Bài tập cá nhân · Phát triển ứng dụng TMĐT</p>
+        <h1>Đoàn Thị Thu Ngọc</h1>
+        <ul class="info">
+          <li><strong>MSSV</strong> 31241027062</li>
+          <li><strong>Lớp học phần</strong> 26C1INF50902701 </li>
+          <li><strong>GitHub</strong> <a href="https://github.com/ngocdoan206" target="_blank" rel="noopener">github.com/ngocdoan206</a></li>
+        </ul>
+      </div>
+    </section>
+ 
+    <!-- 3.2 Giới thiệu về bài thực hành (BẢN NHÁP – hãy sửa lại bằng lời của bạn) -->
+    <section class="card reveal">
+      <h2>Giới thiệu bài thực hành</h2>
+      <p>
+        Ba bài Lab này giúp em đi từ nền tảng ngôn ngữ JavaScript (biến, hàm, đối tượng, mảng),
+        đến việc điều khiển trang web bằng DOM và sự kiện, rồi rút gọn code với thư viện jQuery.
+        Trong phát triển ứng dụng web, HTML dựng nội dung và CSS tạo giao diện, còn JavaScript
+        làm cho trang phản hồi người dùng: kiểm tra form, ẩn hiện nội dung, cập nhật dữ liệu
+        mà không cần tải lại trang. Đây là phần không thể thiếu của một website thương mại điện tử.
+      </p>
+    </section>
+ 
+    <!-- 3.3 Danh sách và liên kết đến các bài Lab -->
+    <section id="labs" class="reveal">
+      <h2 class="section-title">Các bài Lab</h2>
+      <div class="lab-grid">
+        <a class="lab" href="Lab08/index.html">
+          <span class="lab-no">08</span>
+          <h3>JavaScript 1: Language Foundations</h3>
+          <p>Script nhúng và script ngoài, Console, chuỗi, ngày, Math, mảng, hàm, đối tượng.</p>
+          <span class="count">11 Exercise →</span>
+        </a>
+        <a class="lab" href="Lab09/index.html">
+          <span class="lab-no">09</span>
+          <h3>JavaScript 2: DOM and Events</h3>
+          <p>Chọn và sửa phần tử DOM, lắng nghe sự kiện, làm việc với form và kiểm tra dữ liệu.</p>
+          <span class="count">8 Exercise →</span>
+        </a>
+        <a class="lab" href="Lab10/index.html">
+          <span class="lab-no">10</span>
+          <h3>JavaScript 3: jQuery</h3>
+          <p>Selectors, sự kiện, chèn phần tử, animation và gọi web service bằng GET.</p>
+          <span class="count">10 Exercise →</span>
+        </a>
+      </div>
+    </section>
+ 
+    <!-- Tóm tắt kiến thức (BẢN NHÁP – hãy sửa lại bằng lời của bạn) -->
+    <section id="kien-thuc" class="reveal">
+      <h2 class="section-title">Tóm tắt kiến thức</h2>
+      <details open>
+        <summary>Lab 08 – Nền tảng JavaScript</summary>
+        <ul>
+          <li>Có thể viết script nhúng trong HTML hoặc tách ra file <code>.js</code>; thẻ <code>&lt;noscript&gt;</code> hiện nội dung khi JavaScript bị tắt.</li>
+          <li>Console dùng để xem <code>console.log/warn/error</code> và tìm lỗi (ví dụ <code>ReferenceError</code>).</li>
+          <li>Đối tượng có sẵn: <code>String</code>, <code>Date</code>, <code>Math</code>; mảng với <code>push</code>, <code>unshift</code>, vòng lặp <code>for</code>.</li>
+          <li>Hàm có tham số, giá trị trả về, phạm vi biến (toàn cục/cục bộ); hàm cũng là đối tượng nên có thể truyền làm callback.</li>
+          <li>Tạo đối tượng bằng hàm khởi tạo với <code>this</code>; duyệt thuộc tính bằng <code>for...in</code>.</li>
+        </ul>
+      </details>
+      <details>
+        <summary>Lab 09 – DOM và sự kiện</summary>
+        <ul>
+          <li>Chọn phần tử: <code>getElementById</code>, <code>getElementsByTagName</code>, <code>getElementsByClassName</code>, <code>querySelector(All)</code>.</li>
+          <li><code>innerHTML</code> lấy cả thẻ, <code>innerText</code> chỉ lấy chữ; duyệt cây DOM bằng <code>childNodes</code>, <code>nextSibling</code>, <code>parentNode</code>.</li>
+          <li>Thêm/xóa phần tử với <code>createElement</code>, <code>appendChild</code>, <code>removeChild</code>.</li>
+          <li><code>addEventListener</code> gắn hàm xử lý cho <code>click</code>, <code>mouseover</code>, <code>load</code>, <code>focus</code>, <code>blur</code>, <code>submit</code>; <code>preventDefault()</code> chặn gửi form khi dữ liệu chưa hợp lệ.</li>
+          <li>Dùng breakpoint trong DevTools để dừng chương trình và xem giá trị biến.</li>
+        </ul>
+      </details>
+      <details>
+        <summary>Lab 10 – jQuery</summary>
+        <ul>
+          <li>Nạp jQuery từ CDN kèm bản dự phòng cục bộ; <code>$()</code> chọn phần tử theo cú pháp CSS và áp dụng lệnh cho mọi phần tử khớp.</li>
+          <li>Sự kiện: <code>.click()</code>, <code>.on()</code>, <code>.off()</code>; <code>$(function(){})</code> chờ trang sẵn sàng.</li>
+          <li>Chèn phần tử: <code>after</code>, <code>before</code>, <code>append</code>, <code>prepend</code>, <code>appendTo</code>.</li>
+          <li>Hiệu ứng: <code>fadeIn/Out</code>, <code>slideToggle</code>, <code>animate</code> (có thể nối nhiều hiệu ứng).</li>
+          <li>Gọi dữ liệu bất đồng bộ với <code>$.get</code>; xử lý kết quả bằng <code>.done()</code>, <code>.fail()</code>, <code>.always()</code>.</li>
+        </ul>
+      </details>
+    </section>
+ 
+    <!-- Tự đánh giá 100–150 từ (BẢN NHÁP – hãy viết lại bằng trải nghiệm của chính bạn) -->
+    <section id="tu-danh-gia" class="card quote reveal">
+      <h2>Tự đánh giá</h2>
+      <p>
+        Sau ba bài Lab, em hiểu rõ hơn cách JavaScript làm cho trang web sinh động lên: từ kiểu dữ liệu,
+        hàm, đối tượng ở Lab 08, đến chọn và sửa phần tử, bắt sự kiện, kiểm tra form ở Lab 09, rồi viết
+        ngắn gọn hơn với jQuery ở Lab 10. Em làm khá chắc phần DOM và sự kiện, còn phần gọi dữ liệu
+        bất đồng bộ (GET request) em mới ở mức làm theo hướng dẫn và cần luyện thêm. Trong website thương
+        mại điện tử, em có thể áp dụng các kỹ thuật này để kiểm tra form đặt hàng trước khi gửi, tính tổng
+        tiền và thuế như bài 8.9, ẩn hiện chi tiết sản phẩm, phóng to ảnh khi rê chuột và tải danh sách
+        sản phẩm từ máy chủ. 
+      </p>
+    </section>
+ 
+  </main>
+ 
+  <footer class="footer">
+    <p>© <span id="year">2026</span> Đoàn Thị Thu Ngọc · MSSV 31241027062 · Phát triển ứng dụng TMĐT · UEH</p>
+
+  </footer>
+ 
+  <button id="toTop" class="to-top" type="button" aria-label="Lên đầu trang">↑</button>
+  <script src="js/main.js"></script>
+</body>
+</html>
