@@ -1,0 +1,440 @@
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Front-end nâng cao – Buổi 18/11 | Đoàn Thị Thu Ngọc</title>
+    <style>
+        :root {
+            --bg: #fbf8f4;
+            --surface: #ffffff;
+            --text: #2a2622;
+            --muted: #7a7068;
+            --accent: #d35400;
+            --accent-soft: #fdeadb;
+            --line: #ece4db;
+        }
+
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            background: var(--bg);
+            color: var(--text);
+            font-family: system-ui, -apple-system, "Segoe UI", Roboto, Arial, sans-serif;
+            line-height: 1.65;
+        }
+
+        main {
+            max-width: 980px;
+            margin: 0 auto;
+            padding: 0 16px 40px;
+        }
+
+        a {
+            color: var(--accent);
+        }
+
+        code {
+            background: var(--accent-soft);
+            padding: 1px 6px;
+            border-radius: 5px;
+            font-size: .88em;
+        }
+
+        pre {
+            background: #2a2622;
+            color: #f1ece6;
+            padding: 12px 14px;
+            border-radius: 10px;
+            overflow-x: auto;
+            font-size: .85rem;
+            margin: 10px 0;
+        }
+
+        /* Thanh trên cùng */
+        .topbar {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+            padding: 12px 16px;
+            border-bottom: 1px solid var(--line);
+            background: var(--surface);
+        }
+
+        .brand {
+            font-weight: 800;
+            font-size: 1.15rem;
+            text-decoration: none;
+            color: var(--text);
+        }
+
+        .brand span {
+            color: var(--accent);
+        }
+
+        .nav {
+            margin-left: auto;
+            display: flex;
+            gap: 4px;
+            flex-wrap: wrap;
+        }
+
+        .nav a {
+            color: var(--muted);
+            text-decoration: none;
+            padding: 6px 12px;
+            border-radius: 999px;
+            font-size: .92rem;
+        }
+
+        .nav a:hover {
+            background: var(--accent-soft);
+            color: var(--accent);
+        }
+
+        /* Phần giới thiệu */
+        .hero {
+            padding: 40px 0 16px;
+        }
+
+        .eyebrow {
+            margin: 0 0 6px;
+            color: var(--accent);
+            font-weight: 700;
+            font-size: .85rem;
+            letter-spacing: .04em;
+            text-transform: uppercase;
+        }
+
+        h1 {
+            margin: 0 0 12px;
+            font-size: clamp(1.8rem, 5vw, 2.6rem);
+            line-height: 1.2;
+        }
+
+        .info {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            display: grid;
+            gap: 2px;
+        }
+
+        .info strong {
+            display: inline-block;
+            min-width: 120px;
+            color: var(--muted);
+            font-weight: 500;
+        }
+
+        h2 {
+            font-size: 1.4rem;
+            margin: 36px 0 12px;
+        }
+
+        /* Thẻ bài tập: 3 cột trên máy tính */
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 16px;
+        }
+
+        .card {
+            background: var(--surface);
+            border: 1px solid var(--line);
+            border-radius: 16px;
+            padding: 20px 22px;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .card .no {
+            font-size: .8rem;
+            font-weight: 700;
+            color: var(--accent);
+            background: var(--accent-soft);
+            border-radius: 999px;
+            padding: 2px 10px;
+            align-self: flex-start;
+        }
+
+        .card h3 {
+            margin: 10px 0 6px;
+            font-size: 1.1rem;
+        }
+
+        .card p {
+            margin: 0 0 10px;
+            color: var(--muted);
+            font-size: .95rem;
+        }
+
+        .card .go {
+            margin-top: auto;
+            font-weight: 600;
+            text-decoration: none;
+        }
+
+        /* Phần chi tiết từng bài */
+        .detail {
+            background: var(--surface);
+            border: 1px solid var(--line);
+            border-radius: 16px;
+            padding: 22px 26px;
+            margin: 16px 0;
+        }
+
+        .detail h3 {
+            margin-top: 0;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: .93rem;
+            margin: 10px 0;
+        }
+
+        th,
+        td {
+            border: 1px solid var(--line);
+            padding: 8px 10px;
+            text-align: left;
+            vertical-align: top;
+        }
+
+        th {
+            background: var(--accent-soft);
+        }
+
+        ol,
+        ul {
+            padding-left: 22px;
+        }
+
+        .learn li {
+            margin-bottom: 6px;
+        }
+
+        .footer {
+            text-align: center;
+            color: var(--muted);
+            font-size: .9rem;
+            padding: 24px 16px;
+            border-top: 1px solid var(--line);
+        }
+
+        /* Màn hình vừa (máy tính bảng): 2 cột */
+        @media only screen and (max-width: 768px) {
+            .grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        /* Điện thoại: 1 cột, ẩn menu cho gọn */
+        @media only screen and (max-width: 480px) {
+            .grid {
+                grid-template-columns: 1fr;
+            }
+
+            .nav {
+                display: none;
+            }
+
+            .detail {
+                padding: 16px;
+            }
+        }
+
+        /* Khi in: bỏ menu, bỏ nền, in kèm đường dẫn của liên kết */
+        @media only print {
+
+            .topbar,
+            .footer {
+                display: none;
+            }
+
+            body {
+                background: #fff;
+            }
+
+            .card,
+            .detail {
+                border-color: #999;
+                break-inside: avoid;
+            }
+
+            a[href^="http"]::after {
+                content: " (" attr(href) ")";
+                font-size: .8em;
+                color: #555;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <header class="topbar">
+        <a class="brand" href="#top">FE <span>Nâng cao</span></a>
+        <nav class="nav" aria-label="Điều hướng">
+            <a href="#bai-tap">Bài tập</a>
+            <a href="#chi-tiet">Chi tiết</a>
+            <a href="#hoc-duoc">Học được</a>
+            <a href="../JavaScript-Labs/">JavaScript Labs</a>
+        </nav>
+    </header>
+
+    <main id="top">
+        <section class="hero">
+            <p class="eyebrow">Bài tập trên lớp · Phát triển ứng dụng TMĐT · 18/11/2026</p>
+            <h1>Front-end nâng cao: DevTools, Responsive và Hình ảnh</h1>
+            <ul class="info">
+                <li><strong>Họ và tên</strong> Đoàn Thị Thu Ngọc</li>
+                <li><strong>MSSV</strong> 31241027062</li>
+                <li><strong>Lớp học phần</strong> 26C1INF50902701</li>
+            </ul>
+        </section>
+
+        <section id="bai-tap">
+            <h2>Các bài tập</h2>
+            <div class="grid">
+                <article class="card">
+                    <span class="no">Bài 1</span>
+                    <h3>Hack game Chrome Dino bằng DevTools</h3>
+                    <p>Dùng breakpoint và Console để khủng long không chết, chạy nhanh hơn và nhảy cao hơn.</p>
+                    <a class="go" href="#chi-tiet-1">Xem cách làm →</a>
+                </article>
+                <article class="card">
+                    <span class="no">Bài 2</span>
+                    <h3>Responsive bằng @media và chế độ in</h3>
+                    <p>Bố cục 2 khối LEFT/RIGHT tự đổi theo kích cỡ màn hình và khi in trang.</p>
+                    <a class="go" href="Bai1.html">Mở bài →</a>
+                </article>
+                <article class="card">
+                    <span class="no">Bài 3</span>
+                    <h3>Hình ảnh responsive với &lt;picture&gt;</h3>
+                    <p>Trình duyệt tự chọn ảnh khác nhau theo chiều rộng màn hình, có ghi nguồn ảnh.</p>
+                    <a class="go" href="Bai1.html">Mở bài →</a>
+                </article>
+            </div>
+        </section>
+
+        <section id="chi-tiet">
+            <h2>Chi tiết từng bài</h2>
+
+            <div class="detail" id="chi-tiet-1">
+                <h3>Bài 1 – Hack game Chrome Dino bằng DevTools</h3>
+                <p>Bài làm trực tiếp trên <a href="https://chromedino.com" target="_blank" rel="noopener">chromedino.com</a> bằng Chrome DevTools nên không có file riêng; ảnh minh chứng nằm trong báo cáo Word. Các bước:</p>
+                <ol>
+                    <li>Mở tab <b>Sources</b>, file <code>js/game.js</code>, đặt breakpoint tại dòng 522 <code>this.gameOver()</code> (chỗ game kết thúc khi va chạm).</li>
+                    <li>Chơi cho tới khi đâm vào xương rồng: game dừng tại breakpoint, khung Scope hiện <code>this: Runner</code>.</li>
+                    <li>Trong Console, ghi đè hàm kết thúc game bằng một hàm rỗng, sau đó bỏ breakpoint và nhấn F8 cho game chạy tiếp.</li>
+                    <li>Khi game đang chạy, dùng <code>Runner.instance_</code> (đối tượng game được lưu sẵn) để chỉnh tốc độ và độ nhảy.</li>
+                </ol>
+<pre>// Đang dừng ở breakpoint: this là đối tượng game
+this.gameOver = function () {};
+
+// Game đang chạy: dùng Runner.instance_ thay cho this
+Runner.instance_.config.MAX_SPEED = 25;
+Runner.instance_.currentSpeed = 20;
+Runner.instance_.tRex.setJumpVelocity(14);
+Runner.instance_.tRex.config.GRAVITY = 0.35;</pre>
+                <p>Kết quả: khủng long đi xuyên qua chướng ngại vật, chạy nhanh hơn và nhảy cao hơn. Nhấn F5 thì game trở về như cũ, vì mọi thay đổi chỉ nằm trên trình duyệt của mình.</p>
+            </div>
+
+            <div class="detail" id="chi-tiet-2">
+                <h3>Bài 2 – Responsive bằng @media và chế độ in</h3>
+                <p>Lấy source gốc của thầy, định dạng lại cho dễ đọc bằng <a href="https://codebeautify.org/htmlviewer" target="_blank" rel="noopener">Code Beautify HTML Viewer</a>, rồi thêm các khối <code>@media</code>. Cách kiểm tra: mở <a href="Bai1.html">Bai1.html</a>, kéo hẹp cửa sổ hoặc bật Device toolbar (Ctrl+Shift+M) trong DevTools; nhấn Ctrl+P để xem bản in.</p>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Điều kiện</th>
+                            <th>Khối @media</th>
+                            <th>Kết quả</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Màn hình rộng hơn 768px</td>
+                            <td>(CSS mặc định)</td>
+                            <td>LEFT xanh 70% bên trái, RIGHT đỏ 30% bên phải</td>
+                        </tr>
+                        <tr>
+                            <td>Màn hình 481px – 768px</td>
+                            <td><code>max-width: 768px</code></td>
+                            <td>Cả hai khối rộng 100%, xếp chồng lên nhau</td>
+                        </tr>
+                        <tr>
+                            <td>Màn hình 320px – 480px</td>
+                            <td><code>min-width: 320px and max-width: 480px</code></td>
+                            <td>Ẩn khối RIGHT, chỉ còn LEFT</td>
+                        </tr>
+                        <tr>
+                            <td>Khi in (Ctrl+P)</td>
+                            <td><code>only print</code></td>
+                            <td>Ẩn LEFT; RIGHT rộng 100%, giữ màu nền đỏ nhờ <code>print-color-adjust: exact</code></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <div class="detail" id="chi-tiet-3">
+                <h3>Bài 3 – Hình ảnh responsive với &lt;picture&gt;</h3>
+                <p>Trong khối LEFT của <a href="Bai1.html">Bai1.html</a>, thẻ <code>&lt;picture&gt;</code> chứa nhiều <code>&lt;source&gt;</code>. Trình duyệt đọc từ trên xuống và dùng ảnh của <code>&lt;source&gt;</code> đầu tiên có điều kiện đúng; nếu không có điều kiện nào đúng thì dùng ảnh trong <code>&lt;img&gt;</code>.</p>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Chiều rộng màn hình</th>
+                            <th>Ảnh hiển thị</th>
+                            <th>Nguồn ảnh</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Từ 800px trở lên</td>
+                            <td>Logo UEH</td>
+                            <td><a href="https://ueh.edu.vn/images/logo-header.png" target="_blank" rel="noopener">ueh.edu.vn</a></td>
+                        </tr>
+                        <tr>
+                            <td>Từ 600px đến dưới 800px</td>
+                            <td>Logo CTĐ UEH</td>
+                            <td><a href="https://ctd.ueh.edu.vn/wp-content/uploads/2024/06/Thumbnail_logo-CTD-385x256.png" target="_blank" rel="noopener">ctd.ueh.edu.vn</a></td>
+                        </tr>
+                        <tr>
+                            <td>Dưới 600px (ảnh mặc định trong &lt;img&gt;)</td>
+                            <td>Logo trường UEH (BIT)</td>
+                            <td><a href="https://ueh.edu.vn/schools/college/images/logo/bit-header-logo.png" target="_blank" rel="noopener">ueh.edu.vn</a></td>
+                        </tr>
+                    </tbody>
+                </table>
+                <p>Thuộc tính <code>alt="Logo UEH"</code> mô tả ảnh cho trình đọc màn hình và hiện ra thay ảnh nếu ảnh không tải được.</p>
+            </div>
+        </section>
+
+        <section id="hoc-duoc" class="detail learn">
+            <h2 style="margin-top:0">Những gì học được hôm nay</h2>
+            <ul>
+                <li><b>DevTools không chỉ để xem lỗi.</b> Breakpoint cho phép dừng chương trình đúng dòng cần xem; khi đang dừng, Console chạy ngay bên trong hàm đó nên <code>this</code> là đối tượng game. Khi không dừng, <code>this</code> là <code>window</code>, nên cùng một lệnh lại không có tác dụng.</li>
+                <li><b>Hàm trong JavaScript là đối tượng</b>, nên có thể gán đè bằng một hàm khác ngay khi trang đang chạy, giống bài 8.9 ở Lab 08.</li>
+                <li><b>JavaScript chạy trên máy người dùng nên người dùng sửa được.</b> Vì vậy với web TMĐT, điểm số, giá tiền hay tổng đơn hàng không thể tin theo con số trình duyệt gửi lên; máy chủ phải tự kiểm tra lại.</li>
+                <li><b>@media giúp một trang dùng được trên nhiều kích cỡ màn hình.</b> Đặt các mốc như 768px (máy tính bảng) và 480px (điện thoại) rồi đổi chiều rộng, ẩn bớt khối khi màn hình nhỏ.</li>
+                <li><b>@media print điều khiển bản in:</b> ẩn phần không cần in và giữ màu nền bằng <code>print-color-adjust: exact</code>, vì trình duyệt mặc định bỏ màu nền khi in.</li>
+                <li><b>&lt;picture&gt; và &lt;source&gt; cho phép dùng ảnh khác nhau theo kích cỡ màn hình,</b> và <code>&lt;img&gt;</code> luôn là ảnh dự phòng. Ảnh lấy từ trang khác thì ghi rõ nguồn.</li>
+                <li><b>Định dạng lại code (Code Beautify) trước khi sửa</b> giúp nhìn rõ thẻ nào nằm trong thẻ nào, tránh sửa nhầm.</li>
+            </ul>
+            <p style="color:var(--muted);font-size:.92rem">Chính trang này cũng dùng @media: 3 cột trên máy tính, 2 cột trên máy tính bảng, 1 cột trên điện thoại, và bỏ menu khi in.</p>
+        </section>
+    </main>
+
+    <footer class="footer">
+        Đoàn Thị Thu Ngọc · 31241027062 ·
+        <a href="../JavaScript-Labs/">JavaScript Labs</a> ·
+        <a href="https://github.com/ngocdoan206/ptudtmdt-css-basic-tuan-3" target="_blank" rel="noopener">GitHub</a>
+    </footer>
+</body>
+
+</html>
