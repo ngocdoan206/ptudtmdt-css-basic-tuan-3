@@ -1,0 +1,26 @@
+@model IEnumerable<_31241027062_DoanThiThuNgoc.Models.Movie>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h2>31241027062 - Đoàn Thị Thu Ngọc</h2>
+<div class="container">
+    <div class="row grid-demo">
+        @foreach (var item in Model)
+        {
+            <div class="col-md-4 mb-4">
+                <img src="@item.PicturePath" style="width: 200px;" />
+                <p>@Html.DisplayNameFor(model => model.Title): @Html.DisplayFor(modelItem => item.Title)</p>
+                <p>@Html.DisplayNameFor(model => model.Rated): @Html.DisplayFor(modelItem => item.Rated)</p>
+                <p>@Html.DisplayNameFor(model => model.Price): @Html.DisplayFor(modelItem => item.Price)</p>
+                <p>@Html.DisplayNameFor(model => model.Summary): @Html.DisplayFor(modelItem => item.Summary)</p>
+                <p>@Html.DisplayNameFor(model => model.ReleaseDate): @item.ReleaseDate.ToString("dd/MM/yyyy")</p>
+                <p>@Html.DisplayNameFor(model => model.Genre): @Html.DisplayFor(modelItem => item.GenreObj.Name)</p>
+               <form asp-action="AddToCart" asp-route-id="@item.ID" method="post" class="d-inline">
+    <button type="submit" class="btn btn-primary">Mua</button>
+</form>
+            </div>
+        }
+    </div>
+</div>
