@@ -1,35 +1,50 @@
 @model IEnumerable<_31241027062_DoanThiThuNgoc.Models.Genre>
-
+@using System.Globalization
 @{
-    ViewData["Title"] = "Index";
+    ViewData["Title"] = "Thể loại";
+    var vi = new CultureInfo("vi-VN");
 }
 
-<h1>Index</h1>
+<div class="d-flex justify-content-between align-items-end mb-4">
+    <div>
+        <h3 class="section-title">Thể loại phim</h3>
+        <p class="text-secondary small mb-0">@Model.Count() thể loại</p>
+    </div>
+    <a asp-action="Create" class="btn btn-accent">+ Thêm thể loại</a>
+</div>
 
-<p>
-    <a asp-action="Create">Create New</a>
-</p>
-<table class="table">
-    <thead>
-        <tr>
-            <th>
-                @Html.DisplayNameFor(model => model.Name)
-            </th>
-            <th></th>
-        </tr>
-    </thead>
-    <tbody>
-@foreach (var item in Model) {
-        <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.Name)
-            </td>
-            <td>
-                <a asp-action="Edit" asp-route-id="@item.ID">Edit</a> |
-                <a asp-action="Details" asp-route-id="@item.ID">Details</a> |
-                <a asp-action="Delete" asp-route-id="@item.ID">Delete</a>
-            </td>
-        </tr>
+@foreach (var g in Model)
+{
+    var movies = g.Movies ?? new List<_31241027062_DoanThiThuNgoc.Models.Movie>();
+    <section class="mb-5">
+        <div class="d-flex align-items-center gap-3 mb-3">
+            <h4 class="genre-name mb-0">@g.Name</h4>
+            <span class="text-secondary small">@movies.Count phim</span>
+            <div class="ms-auto genre-admin small">
+                <a asp-action="Edit" asp-route-id="@g.ID">Sửa</a> ·
+                <a asp-action="Details" asp-route-id="@g.ID">Chi tiết</a> ·
+                <a asp-action="Delete" asp-route-id="@g.ID">Xóa</a>
+            </div>
+        </div>
+
+        @if (!movies.Any())
+        {
+            <p class="text-secondary small">Chưa có phim thuộc thể loại này.</p>
+        }
+        else
+        {
+            <div class="poster-scroller">
+                @foreach (var m in movies)
+                {
+                    <a class="poster-tile" asp-controller="Movies" asp-action="Details" asp-route-id="@m.ID">
+                        <img src="@m.PicturePath" alt="@m.Title" />
+                        <div class="poster-tile-info">
+                            <div class="poster-tile-title">@m.Title</div>
+                            <div class="small text-secondary">@m.ReleaseDate.ToString("dd/MM/yyyy") · @m.Price.ToString("N0", vi) đ</div>
+                        </div>
+                    </a>
+                }
+            </div>
+        }
+    </section>
 }
-    </tbody>
-</table>

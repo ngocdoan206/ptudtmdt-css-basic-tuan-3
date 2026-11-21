@@ -22,7 +22,7 @@ namespace _31241027062_DoanThiThuNgoc.Controllers
         // GET: Genres
         public async Task<IActionResult> Index()
         {
-            return View(await _context.Genres.ToListAsync());
+            return View(await _context.Genres.Include(g => g.Movies).ToListAsync());
         }
 
         // GET: Genres/Details/5

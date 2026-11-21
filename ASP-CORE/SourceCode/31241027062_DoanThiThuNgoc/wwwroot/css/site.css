@@ -171,3 +171,78 @@ a:hover { color: var(--accent-dark); }
     .hero-summary { display: none; }
     .hero-content .d-flex { justify-content: center; }
 }
+
+/* ---------- Trang chi tiết phim ---------- */
+.detail-hero {
+    position: relative;
+    overflow: hidden;
+    border-radius: 16px;
+    background: var(--surface);
+}
+.detail-content {
+    position: relative;
+    z-index: 1;
+    display: flex;
+    gap: 2.5rem;
+    padding: 3rem;
+    align-items: flex-start;
+}
+.detail-poster {
+    width: 280px;
+    aspect-ratio: 2 / 3;
+    object-fit: cover;
+    border-radius: 12px;
+    box-shadow: 0 12px 32px rgba(0, 0, 0, 0.55);
+    flex-shrink: 0;
+}
+.detail-title { font-size: 2.2rem; font-weight: 700; color: #fff; margin-bottom: 0.75rem; }
+.detail-summary { color: #d5d8de; max-width: 720px; line-height: 1.7; }
+.detail-meta {
+    display: grid;
+    grid-template-columns: 110px 1fr;
+    gap: 0.35rem 1rem;
+    margin: 1.25rem 0 1.5rem;
+}
+.detail-meta dt { color: var(--muted); font-weight: 500; }
+.detail-meta dd { margin: 0; color: #e6e8eb; }
+
+/* ---------- Trang thể loại ---------- */
+.genre-name { font-weight: 700; color: #fff; }
+.genre-admin a { color: var(--muted); text-decoration: none; }
+.genre-admin a:hover { color: var(--accent); }
+.poster-scroller {
+    display: flex;
+    gap: 1rem;
+    overflow-x: auto;
+    padding-bottom: 0.75rem;
+    scroll-snap-type: x mandatory;
+}
+.poster-tile {
+    flex: 0 0 180px;
+    scroll-snap-align: start;
+    background: var(--surface);
+    border-radius: 12px;
+    overflow: hidden;
+    text-decoration: none;
+    color: inherit;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+.poster-tile:hover { transform: translateY(-4px); box-shadow: 0 12px 24px rgba(0, 0, 0, 0.45); }
+.poster-tile img { width: 100%; aspect-ratio: 2 / 3; object-fit: cover; display: block; }
+.poster-tile-info { padding: 0.6rem 0.75rem 0.75rem; }
+.poster-tile-title {
+    color: #fff;
+    font-weight: 600;
+    font-size: 0.95rem;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+@media (max-width: 767.98px) {
+    .detail-content { flex-direction: column; align-items: center; text-align: center; padding: 1.5rem; }
+    .detail-poster { width: 200px; }
+    .detail-meta { text-align: left; }
+    .detail-content .d-flex { justify-content: center; }
+    .poster-tile { flex-basis: 140px; }
+}

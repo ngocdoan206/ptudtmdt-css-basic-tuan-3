@@ -1,7 +1,10 @@
 @model _31241027062_DoanThiThuNgoc.Models.HoaDon
+@{
+    var vi = new System.Globalization.CultureInfo("vi-VN");
+}
 <div class="navbar-text ms-3">
     <b>Giỏ hàng của bạn:</b>
     @Model.ChiTietHoaDons.Sum(x => x.SoLuong) sản phẩm,
-    @Model.TongTien.ToString("N0")
+    @Model.TongTien.ToString("N0", vi) đ
     <a class="btn btn-outline-primary btn-sm ms-2" asp-controller="Movies" asp-action="Checkout">Checkout</a>
 </div>
