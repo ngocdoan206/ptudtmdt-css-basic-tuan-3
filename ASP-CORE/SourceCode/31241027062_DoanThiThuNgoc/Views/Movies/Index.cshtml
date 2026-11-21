@@ -1,26 +1,86 @@
 @model IEnumerable<_31241027062_DoanThiThuNgoc.Models.Movie>
-
+@using System.Globalization
 @{
-    ViewData["Title"] = "Index";
+    ViewData["Title"] = "Trang chủ";
+    var vi = new CultureInfo("vi-VN");
+    var featured = Model.Take(5).ToList();
 }
 
-<h2>31241027062 - Đoàn Thị Thu Ngọc</h2>
-<div class="container">
-    <div class="row grid-demo">
+@if (!Model.Any())
+{
+    <p class="text-secondary">Chưa có phim nào.</p>
+}
+else
+{
+    <div id="heroCarousel" class="carousel slide mb-5" data-bs-ride="carousel">
+        <div class="carousel-indicators">
+            @for (int i = 0; i < featured.Count; i++)
+            {
+                <button type="button" data-bs-target="#heroCarousel" data-bs-slide-to="@i"
+                        class="@(i == 0 ? "active" : "")" aria-label="Phim @(i + 1)"></button>
+            }
+        </div>
+        <div class="carousel-inner">
+            @for (int i = 0; i < featured.Count; i++)
+            {
+                var m = featured[i];
+                <div class="carousel-item @(i == 0 ? "active" : "")">
+                    <div class="hero">
+                        <div class="hero-bg" style="background-image: url('@m.PicturePath')"></div>
+                        <div class="hero-content">
+                            <img class="hero-poster" src="@m.PicturePath" alt="@m.Title" />
+                            <div>
+                                <span class="badge badge-genre mb-2">@m.GenreObj?.Name</span>
+                                <h2 class="hero-title">@m.Title</h2>
+                                <p class="hero-meta">Khởi chiếu @m.ReleaseDate.ToString("dd/MM/yyyy") · Xếp hạng @m.Rated/5</p>
+                                <p class="hero-summary">@m.Summary</p>
+                                <div class="d-flex align-items-center gap-3 flex-wrap">
+                                    <span class="price fs-4">@m.Price.ToString("N0", vi) đ</span>
+                                    <form asp-action="AddToCart" asp-route-id="@m.ID" method="post" class="d-inline">
+                                        <button type="submit" class="btn btn-accent px-4">Mua</button>
+                                    </form>
+                                    <a asp-action="Details" asp-route-id="@m.ID" class="btn btn-outline-light">Chi tiết</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            }
+        </div>
+        <button class="carousel-control-prev" type="button" data-bs-target="#heroCarousel" data-bs-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Trước</span>
+        </button>
+        <button class="carousel-control-next" type="button" data-bs-target="#heroCarousel" data-bs-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Sau</span>
+        </button>
+    </div>
+
+    <h3 class="section-title">Tất cả phim</h3>
+    <p class="text-secondary small mb-4">31241027062 - Đoàn Thị Thu Ngọc</p>
+
+    <div class="row row-cols-2 row-cols-md-3 row-cols-lg-5 g-4">
         @foreach (var item in Model)
         {
-            <div class="col-md-4 mb-4">
-                <img src="@item.PicturePath" style="width: 200px;" />
-                <p>@Html.DisplayNameFor(model => model.Title): @Html.DisplayFor(modelItem => item.Title)</p>
-                <p>@Html.DisplayNameFor(model => model.Rated): @Html.DisplayFor(modelItem => item.Rated)</p>
-                <p>@Html.DisplayNameFor(model => model.Price): @Html.DisplayFor(modelItem => item.Price)</p>
-                <p>@Html.DisplayNameFor(model => model.Summary): @Html.DisplayFor(modelItem => item.Summary)</p>
-                <p>@Html.DisplayNameFor(model => model.ReleaseDate): @item.ReleaseDate.ToString("dd/MM/yyyy")</p>
-                <p>@Html.DisplayNameFor(model => model.Genre): @Html.DisplayFor(modelItem => item.GenreObj.Name)</p>
-               <form asp-action="AddToCart" asp-route-id="@item.ID" method="post" class="d-inline">
-    <button type="submit" class="btn btn-primary">Mua</button>
-</form>
+            <div class="col">
+                <div class="card movie-card">
+                    <a asp-action="Details" asp-route-id="@item.ID">
+                        <img class="movie-poster" src="@item.PicturePath" alt="@item.Title" />
+                    </a>
+                    <div class="card-body d-flex flex-column">
+                        <span class="badge badge-genre align-self-start mb-2">@item.GenreObj?.Name</span>
+                        <h5 class="movie-title">@item.Title</h5>
+                        <p class="small text-secondary mb-2">@item.ReleaseDate.ToString("dd/MM/yyyy") · ★ @item.Rated/5</p>
+                        <div class="mt-auto d-flex justify-content-between align-items-center">
+                            <span class="price">@item.Price.ToString("N0", vi) đ</span>
+                            <form asp-action="AddToCart" asp-route-id="@item.ID" method="post">
+                                <button type="submit" class="btn btn-sm btn-accent">Mua</button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
             </div>
         }
     </div>
-</div>
+}
