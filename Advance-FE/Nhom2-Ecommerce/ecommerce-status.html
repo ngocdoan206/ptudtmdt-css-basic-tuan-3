@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Đơn hàng của tôi – Nguyệt Thạch</title>
+    <meta name="description" content="Nguyệt Thạch – trang sức nữ lấy cảm hứng từ sơn mài Việt và ánh trăng. Bài tập Advance Front-end – 31241027062 – Đoàn Thị Thu Ngọc.">
+    <link rel="icon" href="images/favicon.svg" type="image/svg+xml">
+
+    <!-- Bootstrap 3.4.1 -->
+    <link rel="stylesheet" href="vendor/bootstrap/css/bootstrap.min.css">
+    <!-- bootstrap-star-rating (theme SVG thay cho ngôi sao glyphicon) -->
+    <link rel="stylesheet" href="vendor/star-rating/star-rating.min.css">
+    <link rel="stylesheet" href="vendor/star-rating/theme.min.css">
+    <!-- Font: Fraunces (tiêu đề) + Be Vietnam Pro (nội dung) -->
+    <link rel="stylesheet" href="css/fonts.css">
+    <link rel="stylesheet" href="css/style.css">
+
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+</head>
+<body>
+
+<!-- ================= HEADER ================= -->
+<header class="site-header">
+    <div class="promo-bar">Miễn phí giao hàng cho đơn từ <b>1.000.000 ₫</b> <span class="hidden-xs">· Khắc tên miễn phí cho nhẫn cưới</span></div>
+    <nav class="navbar nt-nav">
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#mainNav" aria-expanded="false">
+                    <span class="sr-only">Mở menu</span>
+                    <span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="ecommerce.html" aria-label="Nguyệt Thạch – Trang chủ">
+                    <svg width="34" height="34" viewBox="0 0 46 46" aria-hidden="true"><path d="M30 6 A18 18 0 1 0 30 40 A14 14 0 1 1 30 6 Z" fill="#D4A24C"/><circle cx="33" cy="23" r="4.5" fill="#A4161A"/></svg>
+                    <span class="brand-word">NGUYỆT THẠCH<small>SƠN MÀI · ÁNH TRĂNG</small></span>
+                </a>
+            </div>
+            <div class="collapse navbar-collapse" id="mainNav">
+                <ul class="nav navbar-nav">
+                    <li><a href="ecommerce.html">Trang chủ</a></li>
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Trang sức <span class="caret"></span></a>
+                        <ul class="dropdown-menu">
+                            <li><a href="ecommerce.html#san-pham">Dây chuyền</a></li>
+                            <li><a href="ecommerce.html#san-pham">Nhẫn</a></li>
+                            <li><a href="ecommerce.html#san-pham">Bông tai</a></li>
+                            <li><a href="ecommerce.html#san-pham">Lắc tay</a></li>
+                            <li role="separator" class="divider"></li>
+                            <li><a href="ecommerce.html#san-pham">Quà cưới</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="ecommerce.html#cau-chuyen">Câu chuyện</a></li>
+                    <li class="active"><a href="ecommerce-status.html">Đơn hàng</a></li>
+                </ul>
+                <ul class="nav navbar-nav navbar-right">
+                    <li><a href="ecommerce-status.html" class="icon-link" title="Tài khoản"><span class="glyphicon glyphicon-user"></span><span class="visible-xs-inline"> Tài khoản</span></a></li>
+                    <li><a href="ecommerce-status.html" class="icon-link cart-link" title="Giỏ hàng"><span class="glyphicon glyphicon-shopping-cart"></span><span class="visible-xs-inline"> Giỏ hàng</span><span class="cart-badge">0</span></a></li>
+                </ul>
+                <form class="navbar-form navbar-right" role="search">
+                    <div class="input-group">
+                        <input type="text" class="form-control" placeholder="Tìm nhẫn, dây chuyền…">
+                        <span class="input-group-btn"><button class="btn" type="submit" aria-label="Tìm"><span class="glyphicon glyphicon-search"></span></button></span>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </nav>
+</header>
+
+<!-- ================= TRẠNG THÁI ĐƠN HÀNG ================= -->
+<div class="container">
+    <ol class="breadcrumb nt-breadcrumb">
+        <li><a href="ecommerce.html">Trang chủ</a></li>
+        <li class="active">Đơn hàng của tôi</li>
+    </ol>
+    <p class="kicker">Tài khoản · Nàng Ngọc</p>
+    <h1 class="section-title" style="font-size:42px">Đơn hàng <em class="gold">của nàng</em></h1>
+    <p class="section-sub">Theo dõi hành trình từ xưởng chế tác tới tay nàng.</p>
+
+    <div class="row">
+        <div class="col-md-9">
+
+            <!-- Đơn 1: đang giao -->
+            <div class="thumbnail order-card">
+                <div class="order-head">
+                    <span><b>#NT-261120</b> · Đặt ngày 20/11/2026</span>
+                    <span class="status-pill st-ship">Đang giao</span>
+                </div>
+                <div class="row order-row">
+                    <div class="col-xs-3 col-sm-1"><img src="images/sp/songhy-1.jpg" alt="Dây chuyền Song Hỷ"></div>
+                    <div class="col-xs-9 col-sm-4"><div class="name">Dây chuyền Song Hỷ</div><div class="meta">Vàng trắng 14K · 42 cm</div></div>
+                    <div class="col-xs-4 col-sm-1 meta">× 1</div>
+                    <div class="col-xs-8 col-sm-2"><b>34.650.000 ₫</b></div>
+                    <div class="col-xs-12 col-sm-4 text-right">
+                        <a href="ecommerce-detail.html" class="btn btn-line btn-sm">Xem sản phẩm</a>
+                        <a href="#" class="btn btn-son btn-sm track-btn">Theo dõi</a>
+                    </div>
+                </div>
+                <div class="steps"><span class="on">Đã đặt</span><span class="on">Đang chuẩn bị</span><span class="on">Đang giao</span><span>Đã nhận</span></div>
+                <div class="progress order-progress"><div class="progress-bar" data-order="75"></div></div>
+            </div>
+
+            <!-- Đơn 2: đang chuẩn bị (2 sản phẩm) -->
+            <div class="thumbnail order-card">
+                <div class="order-head">
+                    <span><b>#NT-261118</b> · Đặt ngày 18/11/2026</span>
+                    <span class="status-pill st-prep">Đang khắc tên</span>
+                </div>
+                <div class="row order-row">
+                    <div class="col-xs-3 col-sm-1"><img src="images/sp/nguyetuoc-1.jpg" alt="Nhẫn Nguyệt Ước"></div>
+                    <div class="col-xs-9 col-sm-4"><div class="name">Nhẫn cầu hôn Nguyệt Ước</div><div class="meta">Size 10 · khắc "N &amp; M · 2026"</div></div>
+                    <div class="col-xs-4 col-sm-1 meta">× 1</div>
+                    <div class="col-xs-8 col-sm-2"><b>24.500.000 ₫</b></div>
+                    <div class="col-xs-12 col-sm-4 text-right"><a href="#" class="btn btn-line btn-sm">Xem bản khắc</a></div>
+                </div>
+                <hr style="border-color:var(--line)">
+                <div class="row order-row">
+                    <div class="col-xs-3 col-sm-1"><img src="images/sp/carot-1.jpg" alt="Nhẫn Cà Rốt Nhỏ"></div>
+                    <div class="col-xs-9 col-sm-4"><div class="name">Nhẫn Cà Rốt Nhỏ</div><div class="meta">Vàng hồng · size tự do</div></div>
+                    <div class="col-xs-4 col-sm-1 meta">× 2</div>
+                    <div class="col-xs-8 col-sm-2"><b>1.104.000 ₫</b></div>
+                    <div class="col-xs-12 col-sm-4 text-right"><a href="#" class="btn btn-line btn-sm">Đổi size</a></div>
+                </div>
+                <div class="steps"><span class="on">Đã đặt</span><span class="on">Đang chuẩn bị</span><span>Đang giao</span><span>Đã nhận</span></div>
+                <div class="progress order-progress"><div class="progress-bar" data-order="45"></div></div>
+            </div>
+
+            <!-- Đơn 3: đã nhận -->
+            <div class="thumbnail order-card">
+                <div class="order-head">
+                    <span><b>#NT-261102</b> · Đặt ngày 02/11/2026</span>
+                    <span class="status-pill st-done">Đã nhận</span>
+                </div>
+                <div class="row order-row">
+                    <div class="col-xs-3 col-sm-1"><img src="images/sp/cameo-1.jpg" alt="Mặt dây Cameo Đêm Rằm"></div>
+                    <div class="col-xs-9 col-sm-4"><div class="name">Mặt dây Cameo Đêm Rằm</div><div class="meta">Vàng 18K · dây 45 cm</div></div>
+                    <div class="col-xs-4 col-sm-1 meta">× 1</div>
+                    <div class="col-xs-8 col-sm-2"><b>5.822.500 ₫</b></div>
+                    <div class="col-xs-12 col-sm-4 text-right">
+                        <a href="ecommerce-detail.html#tab-review" class="btn btn-line btn-sm">Viết đánh giá</a>
+                        <a href="#" class="btn btn-son btn-sm add-to-cart" data-name="Mặt dây Cameo Đêm Rằm">Mua lại</a>
+                    </div>
+                </div>
+                <div class="steps"><span class="on">Đã đặt</span><span class="on">Đang chuẩn bị</span><span class="on">Đang giao</span><span class="on">Đã nhận</span></div>
+                <div class="progress order-progress"><div class="progress-bar" data-order="100"></div></div>
+            </div>
+        </div>
+
+        <!-- Tóm tắt bên phải -->
+        <div class="col-md-3">
+            <div class="side-card reveal" style="margin-top:0">
+                <p class="kicker">Thành viên</p>
+                <h4>Hạng <em class="gold">Trăng Rằm</em></h4>
+                <p>Đã mua 3 đơn · 65.180.500 ₫. Còn 34.819.500 ₫ nữa để lên hạng Nhật Thực với ưu đãi đánh bóng tận nhà.</p>
+                <div class="progress progress-stock" style="background:#3A2E29"><div class="progress-bar progress-bar-warning" data-order="65" style="background:var(--gold)"></div></div>
+            </div>
+            <div class="list-group nt-list" style="margin-top:24px">
+                <a href="#" class="list-group-item active">Đơn hàng <span class="badge">3</span></a>
+                <a href="#" class="list-group-item">Sổ địa chỉ</a>
+                <a href="#" class="list-group-item">Size nhẫn của tôi</a>
+                <a href="#" class="list-group-item">Đăng xuất</a>
+            </div>
+        </div>
+    </div>
+</div>
+<div style="height:50px"></div>
+
+<!-- ================= ĐĂNG KÝ + FOOTER ================= -->
+<section class="newsletter" id="dang-ky">
+    <div class="container">
+        <p class="kicker">Thư từ Nguyệt Thạch</p>
+        <h3>Nhận ưu đãi <em class="gold">-10%</em> cho đơn đầu tiên</h3>
+        <form>
+            <input type="email" placeholder="email@cuanang.com" aria-label="Email">
+            <button class="btn btn-son" type="submit">Đăng ký</button>
+        </form>
+    </div>
+</section>
+
+<footer class="site-footer">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-4">
+                <h5>Nguyệt Thạch</h5>
+                <p>Trang sức sơn mài &amp; ánh trăng.<br>Ánh trăng nhỏ cho mỗi ngày của nàng.</p>
+            </div>
+            <div class="col-sm-2 col-xs-6"><h5>Mua sắm</h5><a href="ecommerce.html#san-pham">Dây chuyền</a><a href="ecommerce.html#san-pham">Nhẫn</a><a href="ecommerce.html#san-pham">Quà cưới</a></div>
+            <div class="col-sm-3 col-xs-6"><h5>Hỗ trợ</h5><a href="ecommerce-status.html">Tra cứu đơn hàng</a><a href="#">Hướng dẫn đo size</a><a href="#">Bảo hành &amp; đổi trả</a></div>
+            <div class="col-sm-3"><h5>Ghé thăm</h5><p>Showroom giả định – TP. Hồ Chí Minh<br>Hotline: 1800 0000 (giả định)</p></div>
+        </div>
+        <div class="copy">
+            <span>© <span class="year">2026</span> Nguyệt Thạch · 31241027062 – Đoàn Thị Thu Ngọc</span>
+            <span>Website bài tập môn học – thương hiệu, giá và đánh giá là dữ liệu giả định. Ảnh/video: Pexels (xem nguon-anh.txt).</span>
+        </div>
+    </div>
+</footer>
+
+<script src="vendor/jquery-1.12.4.min.js"></script>
+<script src="vendor/bootstrap/js/bootstrap.min.js"></script>
+<script src="vendor/star-rating/star-rating.min.js"></script>
+<script src="vendor/star-rating/theme.min.js"></script>
+<script src="js/main.js"></script>
+</body>
+</html>

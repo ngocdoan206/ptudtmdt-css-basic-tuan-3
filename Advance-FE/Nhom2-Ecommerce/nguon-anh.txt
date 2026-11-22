@@ -1,0 +1,24 @@
+NGUỒN ẢNH VÀ VIDEO – Website Nguyệt Thạch (bài tập Advance Front-end)
+31241027062 – Đoàn Thị Thu Ngọc
+
+Toàn bộ tư liệu dùng cho mục đích học tập. Thương hiệu "Nguyệt Thạch", giá, tồn kho và đánh giá là dữ liệu giả định.
+
+VIDEO (Pexels – giấy phép Pexels, dùng miễn phí, được chỉnh sửa)
+- videos/hero-songhy.mp4      : Pexels video 12307962 – dây chuyền kim cương trên tượng trưng bày
+- videos/hero-nguyetuoc.mp4   : Pexels video 8247010  – đeo nhẫn cho tay
+  Đã nén về 1280px, bỏ âm thanh. Ảnh poster cắt từ chính video.
+
+ẢNH CẮT TỪ VIDEO TRÊN
+- images/sp/songhy-1.jpg, songhy-2.jpg, images/detail/songhy-1..4*.jpg  (từ video 12307962)
+- images/sp/nguyetuoc-1.jpg, nguyetuoc-2.jpg                           (từ video 8247010)
+  Ảnh "-zoom" là bản phóng 2 lần để xZoom hiển thị rõ độ phóng.
+
+ẢNH
+- images/sp/cameo-1.jpg, cameo-2.jpg, images/banner-cameo.jpg : Pexels, cottonbro studio, ảnh 6154081
+- images/sp/carot-1.jpg, carot-2.jpg, images/story.jpg         : [ĐIỀN LINK NGUỒN ẢNH NHẪN CÀ RỐT]
+
+FONT (tự host, giấy phép SIL Open Font License, qua Fontsource)
+- Fraunces, Be Vietnam Pro
+
+THƯ VIỆN
+- jQuery 1.12.4, Bootstrap 3.4.1, xZoom 1.0.15 (payalord), bootstrap-star-rating 4.1.2 (kartik-v, theme SVG)

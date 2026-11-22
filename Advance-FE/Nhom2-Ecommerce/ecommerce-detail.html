@@ -1,0 +1,353 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Dây chuyền Song Hỷ – Nguyệt Thạch</title>
+    <meta name="description" content="Nguyệt Thạch – trang sức nữ lấy cảm hứng từ sơn mài Việt và ánh trăng. Bài tập Advance Front-end – 31241027062 – Đoàn Thị Thu Ngọc.">
+    <link rel="icon" href="images/favicon.svg" type="image/svg+xml">
+
+    <!-- Bootstrap 3.4.1 -->
+    <link rel="stylesheet" href="vendor/bootstrap/css/bootstrap.min.css">
+    <!-- bootstrap-star-rating (theme SVG thay cho ngôi sao glyphicon) -->
+    <link rel="stylesheet" href="vendor/star-rating/star-rating.min.css">
+    <link rel="stylesheet" href="vendor/star-rating/theme.min.css">
+    <!-- Font: Fraunces (tiêu đề) + Be Vietnam Pro (nội dung) -->
+    <link rel="stylesheet" href="css/fonts.css">
+    <link rel="stylesheet" href="vendor/xzoom/xzoom.min.css">
+    <link rel="stylesheet" href="css/style.css">
+
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+</head>
+<body>
+
+<!-- ================= HEADER ================= -->
+<header class="site-header">
+    <div class="promo-bar">Miễn phí giao hàng cho đơn từ <b>1.000.000 ₫</b> <span class="hidden-xs">· Khắc tên miễn phí cho nhẫn cưới</span></div>
+    <nav class="navbar nt-nav">
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#mainNav" aria-expanded="false">
+                    <span class="sr-only">Mở menu</span>
+                    <span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="ecommerce.html" aria-label="Nguyệt Thạch – Trang chủ">
+                    <svg width="34" height="34" viewBox="0 0 46 46" aria-hidden="true"><path d="M30 6 A18 18 0 1 0 30 40 A14 14 0 1 1 30 6 Z" fill="#D4A24C"/><circle cx="33" cy="23" r="4.5" fill="#A4161A"/></svg>
+                    <span class="brand-word">NGUYỆT THẠCH<small>SƠN MÀI · ÁNH TRĂNG</small></span>
+                </a>
+            </div>
+            <div class="collapse navbar-collapse" id="mainNav">
+                <ul class="nav navbar-nav">
+                    <li><a href="ecommerce.html">Trang chủ</a></li>
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Trang sức <span class="caret"></span></a>
+                        <ul class="dropdown-menu">
+                            <li><a href="ecommerce.html#san-pham">Dây chuyền</a></li>
+                            <li><a href="ecommerce.html#san-pham">Nhẫn</a></li>
+                            <li><a href="ecommerce.html#san-pham">Bông tai</a></li>
+                            <li><a href="ecommerce.html#san-pham">Lắc tay</a></li>
+                            <li role="separator" class="divider"></li>
+                            <li><a href="ecommerce.html#san-pham">Quà cưới</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="ecommerce.html#cau-chuyen">Câu chuyện</a></li>
+                    <li><a href="ecommerce-status.html">Đơn hàng</a></li>
+                </ul>
+                <ul class="nav navbar-nav navbar-right">
+                    <li><a href="ecommerce-status.html" class="icon-link" title="Tài khoản"><span class="glyphicon glyphicon-user"></span><span class="visible-xs-inline"> Tài khoản</span></a></li>
+                    <li><a href="ecommerce-status.html" class="icon-link cart-link" title="Giỏ hàng"><span class="glyphicon glyphicon-shopping-cart"></span><span class="visible-xs-inline"> Giỏ hàng</span><span class="cart-badge">0</span></a></li>
+                </ul>
+                <form class="navbar-form navbar-right" role="search">
+                    <div class="input-group">
+                        <input type="text" class="form-control" placeholder="Tìm nhẫn, dây chuyền…">
+                        <span class="input-group-btn"><button class="btn" type="submit" aria-label="Tìm"><span class="glyphicon glyphicon-search"></span></button></span>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </nav>
+</header>
+
+<!-- ================= CHI TIẾT SẢN PHẨM ================= -->
+<div class="container">
+    <ol class="breadcrumb nt-breadcrumb">
+        <li><a href="ecommerce.html">Trang chủ</a></li>
+        <li><a href="ecommerce.html#san-pham">Dây chuyền</a></li>
+        <li class="active">Dây chuyền Song Hỷ</li>
+    </ol>
+
+    <div class="thumbnail detail-box">
+        <div class="row">
+            <!-- Ảnh lớn + ảnh nhỏ (xZoom) -->
+            <div class="col-sm-6">
+                <div class="xzoom-container">
+                    <img class="xzoom img-responsive" id="xzoom-main" src="images/detail/songhy-1.jpg" xoriginal="images/detail/songhy-1-zoom.jpg" alt="Dây chuyền Song Hỷ – góc chính diện">
+                    <span class="badge-sale">-10%</span>
+                    <span class="badge-tag badge-best">Best seller</span>
+                </div>
+                <div class="xzoom-thumbs thumbnails">
+                    <a href="images/detail/songhy-1-zoom.jpg"><img class="xzoom-gallery img-responsive" src="images/detail/songhy-1-thumb.jpg" xpreview="images/detail/songhy-1.jpg" alt="Góc 1"></a>
+                    <a href="images/detail/songhy-2-zoom.jpg"><img class="xzoom-gallery img-responsive" src="images/detail/songhy-2-thumb.jpg" xpreview="images/detail/songhy-2.jpg" alt="Góc 2"></a>
+                    <a href="images/detail/songhy-3-zoom.jpg"><img class="xzoom-gallery img-responsive" src="images/detail/songhy-3-thumb.jpg" xpreview="images/detail/songhy-3.jpg" alt="Góc 3"></a>
+                    <a href="images/detail/songhy-4-zoom.jpg"><img class="xzoom-gallery img-responsive" src="images/detail/songhy-4-thumb.jpg" xpreview="images/detail/songhy-4.jpg" alt="Góc 4"></a>
+                </div>
+                <p class="zoom-hint"><span class="glyphicon glyphicon-zoom-in"></span> Rê chuột lên ảnh để soi chi tiết · lăn chuột để phóng to/thu nhỏ</p>
+            </div>
+
+            <!-- Thông tin + form đặt hàng -->
+            <div class="col-sm-6 detail-info">
+                <p class="kicker">Bộ sưu tập Song Hỷ</p>
+                <h1>Dây chuyền <em class="gold">Song Hỷ</em></h1>
+                <div class="pc-rating">
+                    <input class="rating-display" value="4.9">
+                    <a href="#tab-review" class="count go-review">4,9 · 86 đánh giá</a>
+                </div>
+                <div class="detail-price">
+                    <strong>34.650.000 ₫</strong>
+                    <del>38.500.000 ₫</del>
+                    <span class="save">Tiết kiệm 3.850.000 ₫</span>
+                </div>
+                <p class="lead-quote">"Một dòng kim cương nhỏ chảy dọc xương quai xanh – như ánh trăng rót xuống đêm cưới."</p>
+
+                <div class="detail-stock">
+                    <div class="progress progress-stock"><div class="progress-bar" data-stock="30"></div></div>
+                    <p class="pc-stock low">Sắp hết – chỉ còn 3/10 sản phẩm trong đợt chế tác này</p>
+                </div>
+
+                <form id="buy-form">
+                    <label class="opt-label" for="material">Chất liệu</label>
+                    <select id="material" class="form-control nt-select">
+                        <option value="0">Vàng trắng 14K</option>
+                        <option value="6200000">Vàng trắng 18K (+6.200.000 ₫)</option>
+                        <option value="14500000">Bạch kim PT950 (+14.500.000 ₫)</option>
+                    </select>
+
+                    <span class="opt-label">Độ dài dây</span>
+                    <div class="btn-group size-group" data-toggle="buttons">
+                        <label class="btn"><input type="radio" name="len" value="40" autocomplete="off"> 40 cm</label>
+                        <label class="btn active"><input type="radio" name="len" value="42" autocomplete="off" checked> 42 cm</label>
+                        <label class="btn"><input type="radio" name="len" value="45" autocomplete="off"> 45 cm</label>
+                    </div>
+
+                    <label class="opt-label" for="qty">Số lượng</label>
+                    <input type="number" id="qty" class="form-control nt-qty" value="1" min="1" max="3" style="width:110px">
+
+                    <div class="detail-actions">
+                        <a href="#" class="btn btn-line" id="contact-seller"><span class="glyphicon glyphicon-comment"></span> Nhắn tư vấn</a>
+                        <button type="button" class="btn btn-son add-to-cart" data-name="Dây chuyền Song Hỷ" data-use-qty="true"><span class="glyphicon glyphicon-shopping-cart"></span> Thêm vào giỏ</button>
+                    </div>
+                </form>
+
+                <ul class="perks">
+                    <li><span class="glyphicon glyphicon-certificate"></span>Kèm giấy kiểm định kim cương và vàng</li>
+                    <li><span class="glyphicon glyphicon-gift"></span>Hộp quà sơn mài đỏ son + thiệp viết tay</li>
+                    <li><span class="glyphicon glyphicon-send"></span>Giao nhanh 2 giờ nội thành TP.HCM</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <!-- Tabs: mô tả · chất liệu · đánh giá -->
+    <ul class="nav nav-tabs nt-tabs" role="tablist">
+        <li class="active"><a href="#tab-desc" data-toggle="tab">Mô tả</a></li>
+        <li><a href="#tab-spec" data-toggle="tab">Chất liệu &amp; bảo quản</a></li>
+        <li><a href="#tab-review" data-toggle="tab">Đánh giá (<span id="review-count">3</span>)</a></li>
+    </ul>
+    <div class="tab-content">
+        <div class="tab-pane fade in active" id="tab-desc">
+            <div class="row">
+                <div class="col-md-8">
+                    <p class="lead-quote" style="margin-top:0">Ở Việt Nam, chữ Hỷ đôi treo trước cửa nhà là lời chúc trăm năm. Song Hỷ mang lời chúc ấy lên cổ nàng.</p>
+                    <p>Hơn 90 viên kim cương tấm được đính sát nhau thành một dòng sáng liền mạch, kết thúc bằng mặt giọt nước ôm một viên chủ. Khi nàng xoay người, cả sợi dây bắt sáng theo từng nhịp – rực nhất dưới đèn tiệc và vẫn đủ thanh lịch để đeo lại vào những ngày thường sau cưới.</p>
+                    <p>Phù hợp: cô dâu ngày rước dâu, quà kỷ niệm ngày cưới, quà mẹ chồng trao con dâu.</p>
+                </div>
+                <div class="col-md-4">
+                    <div class="side-card" style="margin-top:0">
+                        <p class="kicker">Gợi ý phối</p>
+                        <h4>Áo dài đỏ <em class="gold">cổ thuyền</em></h4>
+                        <p>Cổ áo mở giúp dòng kim cương hiện rõ, nền đỏ làm ánh vàng trắng nổi bật hơn.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="tab-pane fade" id="tab-spec">
+            <div class="row">
+                <div class="col-md-6">
+                    <table class="table spec-table">
+                        <tr><td>Chất liệu</td><td>Vàng trắng 14K (58,5%), xi rhodium chống xỉn</td></tr>
+                        <tr><td>Đá</td><td>Kim cương tấm tự nhiên, tổng 1,2 ct, nước F–G</td></tr>
+                        <tr><td>Mặt dây</td><td>Hình giọt nước 12 × 8 mm</td></tr>
+                        <tr><td>Độ dài</td><td>40 / 42 / 45 cm, khóa an toàn hai chốt</td></tr>
+                        <tr><td>Trọng lượng</td><td>Khoảng 4,8 chỉ</td></tr>
+                    </table>
+                </div>
+                <div class="col-md-6">
+                    <p><b>Bảo quản</b></p>
+                    <p>Đeo sau cùng khi đã xịt nước hoa và trang điểm. Tháo ra khi tắm biển, hồ bơi hoặc tập thể thao. Cất riêng trong hộp lót nhung để kim cương không cọ xước các món khác.</p>
+                    <p><b>Cam kết</b></p>
+                    <p>Đổi trả 30 ngày · bảo hành rơi đá 12 tháng · làm sạch và đánh bóng miễn phí trọn đời tại cửa hàng.</p>
+                </div>
+            </div>
+        </div>
+        <div class="tab-pane fade" id="tab-review">
+            <div class="rating-summary">
+                <span class="big">4,9</span>
+                <div><input class="rating-display" value="4.9"><span class="count">Dựa trên 86 đánh giá (dữ liệu giả định)</span></div>
+            </div>
+            <div id="review-list">
+                <div class="review">
+                    <span class="who">Minh Anh</span><span class="when">12/11/2026</span>
+                    <input class="rating-display" value="5">
+                    <p>Đeo ngày rước dâu, lên ảnh lấp lánh mà không bị lố. Hộp sơn mài đẹp đến mức mẹ giữ lại làm hộp đựng nữ trang.</p>
+                </div>
+                <div class="review">
+                    <span class="who">Thu Hà</span><span class="when">03/11/2026</span>
+                    <input class="rating-display" value="5">
+                    <p>Nhân viên tư vấn độ dài rất kỹ, mình chọn 42 cm vừa xương quai xanh.</p>
+                </div>
+                <div class="review">
+                    <span class="who">Quốc Bảo</span><span class="when">28/10/2026</span>
+                    <input class="rating-display" value="4.5">
+                    <p>Mua tặng vợ kỷ niệm 5 năm. Giao trong ngày, có giấy kiểm định đầy đủ. Trừ nửa sao vì muốn có thêm size 50 cm.</p>
+                </div>
+            </div>
+
+            <form class="review-form" id="review-form">
+                <h4 style="margin-top:0">Chia sẻ cảm nhận của nàng</h4>
+                <input id="rv-star" class="rating-input" value="0" data-min="0" data-max="5" data-step="1">
+                <p class="text-danger small" id="rv-error" style="display:none"></p>
+                <div class="row">
+                    <div class="col-sm-4"><input type="text" id="rv-name" class="form-control nt-select" placeholder="Tên của nàng"></div>
+                    <div class="col-sm-8"><textarea id="rv-text" class="form-control" rows="2" placeholder="Món đồ này khiến nàng thấy thế nào?"></textarea></div>
+                </div>
+                <button type="submit" class="btn btn-son" style="margin-top:12px">Gửi đánh giá</button>
+            </form>
+        </div>
+    </div>
+</div>
+
+<!-- ================= SẢN PHẨM KHÁC ================= -->
+<section class="section" style="padding-top:30px">
+    <div class="container">
+        <p class="kicker">Gợi ý cho nàng</p>
+        <h2 class="section-title" style="margin-bottom:26px">Có thể nàng sẽ <em class="gold">thích</em></h2>
+        <div class="row product-grid">
+            <!-- SP 2 -->
+                    <div class="col-sm-6 col-md-4 reveal">
+                        <div class="thumbnail product-card">
+                            <div class="pc-media">
+                                <a href="#">
+                                    <img class="pc-img" src="images/sp/nguyetuoc-1.jpg" alt="Nhẫn kim cương Nguyệt Ước đeo trên tay">
+                                    <img class="pc-img-alt" src="images/sp/nguyetuoc-2.jpg" alt="">
+                                </a>
+                                <span class="badge-tag badge-new">New</span>
+                                <button class="btn btn-son btn-block pc-quick add-to-cart" data-name="Nhẫn Nguyệt Ước">Thêm vào giỏ</button>
+                            </div>
+                            <div class="caption">
+                                <p class="pc-collection">BST Song Hỷ</p>
+                                <h3><a href="#">Nhẫn cầu hôn Nguyệt Ước</a></h3>
+                                <p class="pc-material">Vàng trắng 14K · kim cương 5 ly</p>
+                                <div class="pc-rating"><input class="rating-display" value="5"><span class="count">5,0 (41)</span></div>
+                                <p class="pc-price"><strong>24.500.000 ₫</strong></p>
+                                <div class="progress progress-stock"><div class="progress-bar" data-stock="60"></div></div>
+                                <p class="pc-stock">Còn 6 sản phẩm</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- SP 3 -->
+                    <div class="col-sm-6 col-md-4 reveal">
+                        <div class="thumbnail product-card">
+                            <div class="pc-media">
+                                <a href="#">
+                                    <img class="pc-img" src="images/sp/cameo-1.jpg" alt="Mặt dây cameo Đêm Rằm trên áo lụa trắng">
+                                    <img class="pc-img-alt" src="images/sp/cameo-2.jpg" alt="">
+                                </a>
+                                <span class="badge-sale">-15%</span>
+                                <span class="badge-tag badge-best">Best seller</span>
+                                <button class="btn btn-son btn-block pc-quick add-to-cart" data-name="Mặt dây Cameo Đêm Rằm">Thêm vào giỏ</button>
+                            </div>
+                            <div class="caption">
+                                <p class="pc-collection">BST Đêm Rằm</p>
+                                <h3><a href="#">Mặt dây Cameo Đêm Rằm</a></h3>
+                                <p class="pc-material">Vàng 18K · cameo vỏ ốc san hô</p>
+                                <div class="pc-rating"><input class="rating-display" value="4.8"><span class="count">4,8 (57)</span></div>
+                                <p class="pc-price"><strong>5.822.500 ₫</strong><del>6.850.000 ₫</del></p>
+                                <div class="progress progress-stock"><div class="progress-bar" data-stock="25"></div></div>
+                                <p class="pc-stock low">Chỉ còn 2 sản phẩm</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- SP 4 -->
+                    <div class="col-sm-6 col-md-4 reveal">
+                        <div class="thumbnail product-card">
+                            <div class="pc-media">
+                                <a href="#">
+                                    <img class="pc-img" src="images/sp/carot-1.jpg" alt="Nhẫn Cà Rốt Nhỏ đeo trên ngón tay">
+                                    <img class="pc-img-alt" src="images/sp/carot-2.jpg" alt="">
+                                </a>
+                                <span class="badge-sale">-20%</span>
+                                <span class="badge-tag badge-new">New</span>
+                                <button class="btn btn-son btn-block pc-quick add-to-cart" data-name="Nhẫn Cà Rốt Nhỏ">Thêm vào giỏ</button>
+                            </div>
+                            <div class="caption">
+                                <p class="pc-collection">BST Hạt Nắng</p>
+                                <h3><a href="#">Nhẫn Cà Rốt Nhỏ</a></h3>
+                                <p class="pc-material">Bạc 925 mạ vàng hồng · men cam · đá CZ</p>
+                                <div class="pc-rating"><input class="rating-display" value="4.7"><span class="count">4,7 (132)</span></div>
+                                <p class="pc-price"><strong>552.000 ₫</strong><del>690.000 ₫</del></p>
+                                <div class="progress progress-stock"><div class="progress-bar" data-stock="75"></div></div>
+                                <p class="pc-stock">Còn 15 sản phẩm</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    
+        </div>
+    </div>
+</section>
+
+<!-- ================= ĐĂNG KÝ + FOOTER ================= -->
+<section class="newsletter" id="dang-ky">
+    <div class="container">
+        <p class="kicker">Thư từ Nguyệt Thạch</p>
+        <h3>Nhận ưu đãi <em class="gold">-10%</em> cho đơn đầu tiên</h3>
+        <form>
+            <input type="email" placeholder="email@cuanang.com" aria-label="Email">
+            <button class="btn btn-son" type="submit">Đăng ký</button>
+        </form>
+    </div>
+</section>
+
+<footer class="site-footer">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-4">
+                <h5>Nguyệt Thạch</h5>
+                <p>Trang sức sơn mài &amp; ánh trăng.<br>Ánh trăng nhỏ cho mỗi ngày của nàng.</p>
+            </div>
+            <div class="col-sm-2 col-xs-6"><h5>Mua sắm</h5><a href="ecommerce.html#san-pham">Dây chuyền</a><a href="ecommerce.html#san-pham">Nhẫn</a><a href="ecommerce.html#san-pham">Quà cưới</a></div>
+            <div class="col-sm-3 col-xs-6"><h5>Hỗ trợ</h5><a href="ecommerce-status.html">Tra cứu đơn hàng</a><a href="#">Hướng dẫn đo size</a><a href="#">Bảo hành &amp; đổi trả</a></div>
+            <div class="col-sm-3"><h5>Ghé thăm</h5><p>Showroom giả định – TP. Hồ Chí Minh<br>Hotline: 1800 0000 (giả định)</p></div>
+        </div>
+        <div class="copy">
+            <span>© <span class="year">2026</span> Nguyệt Thạch · 31241027062 – Đoàn Thị Thu Ngọc</span>
+            <span>Website bài tập môn học – thương hiệu, giá và đánh giá là dữ liệu giả định. Ảnh/video: Pexels (xem nguon-anh.txt).</span>
+        </div>
+    </div>
+</footer>
+
+<script src="vendor/jquery-1.12.4.min.js"></script>
+<script src="vendor/bootstrap/js/bootstrap.min.js"></script>
+<script src="vendor/star-rating/star-rating.min.js"></script>
+<script src="vendor/star-rating/theme.min.js"></script>
+<script src="vendor/xzoom/xzoom.min.js"></script>
+<script src="js/detail.js"></script>
+<script src="js/main.js"></script>
+</body>
+</html>
