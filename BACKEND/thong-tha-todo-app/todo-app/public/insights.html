@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Hiểu mình · Thong Thả</title>
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect x='3' y='3' width='26' height='26' rx='8' fill='%23F7C948' stroke='%231D2A2C' stroke-width='2'/><path d='M10 16l4 4 8-9' fill='none' stroke='%231D2A2C' stroke-width='3' stroke-linecap='round' stroke-linejoin='round'/></svg>">
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+  <main id="main">
+    <div class="section-head">
+      <div>
+        <h1 style="font-size:1.6rem;margin:0">Hiểu mình</h1>
+        <p class="muted" style="margin:2px 0 0">Tấm gương phản chiếu thói quen làm việc của bạn. Không chấm điểm, không xếp hạng.</p>
+      </div>
+      <div class="segmented" role="group" aria-label="Khoảng thời gian" id="range">
+        <button type="button" data-range="7" aria-pressed="true">7 ngày</button>
+        <button type="button" data-range="30">30 ngày</button>
+      </div>
+    </div>
+
+    <section class="kpis" id="kpis" aria-label="Số liệu chính" style="margin-top:14px"></section>
+
+    <div class="charts">
+      <section class="card"><h2>Việc hoàn thành theo ngày</h2><div class="chart-box"><canvas id="c-days" role="img" aria-label="Biểu đồ số việc hoàn thành mỗi ngày"></canvas></div></section>
+      <section class="card"><h2>Tâm trạng và số việc</h2><p class="small muted" style="margin-top:0">Trung bình mỗi ngày: số việc đã xếp so với số việc xong.</p><div class="chart-box"><canvas id="c-mood" role="img" aria-label="Biểu đồ số việc xếp và xong theo tâm trạng"></canvas></div></section>
+      <section class="card"><h2>Theo nhãn</h2><div class="chart-box"><canvas id="c-tag" role="img" aria-label="Biểu đồ số việc hoàn thành theo nhãn"></canvas></div></section>
+      <section class="card"><h2>Khung giờ hoàn thành</h2><div class="chart-box"><canvas id="c-hour" role="img" aria-label="Biểu đồ số việc hoàn thành theo giờ trong ngày"></canvas></div></section>
+      <section class="card"><h2>Theo mức ưu tiên</h2><div class="chart-box"><canvas id="c-prio" role="img" aria-label="Biểu đồ số việc hoàn thành theo mức ưu tiên"></canvas></div></section>
+      <section class="card" id="ratios"><h2>Bạn thường mất bao lâu so với dự tính?</h2></section>
+      <section class="card" id="energy"><h2>Năng lượng và tỉ lệ hoàn thành</h2></section>
+      <section class="card" id="overload"><h2>Những ngày xếp quá sức</h2></section>
+      <section class="card" id="postponed"><h2>Việc hay bị dời và lý do vướng</h2></section>
+      <section class="card" id="recurring"><h2>Việc lặp lại tuần này</h2></section>
+    </div>
+
+    <section class="card" style="margin-top:16px">
+      <h2>Dữ liệu mẫu</h2>
+      <p class="small muted" style="margin-top:0">Nạp bộ dữ liệu giả lập ~30 ngày để thử mọi tính năng, hoặc xoá sạch để bắt đầu dùng thật.</p>
+      <div style="display:flex;gap:8px;flex-wrap:wrap">
+        <button class="btn" type="button" id="seed-btn">Nạp dữ liệu mẫu</button>
+        <button class="btn" type="button" id="reset-btn">Xoá sạch dữ liệu</button>
+      </div>
+    </section>
+  </main>
+
+  <script src="/vendor/chart.umd.min.js"></script>
+  <script src="/js/common.js"></script>
+  <script src="/js/insights.js"></script>
+</body>
+</html>

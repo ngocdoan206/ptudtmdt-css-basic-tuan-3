@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Tất cả việc · Thong Thả</title>
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect x='3' y='3' width='26' height='26' rx='8' fill='%23F7C948' stroke='%231D2A2C' stroke-width='2'/><path d='M10 16l4 4 8-9' fill='none' stroke='%231D2A2C' stroke-width='3' stroke-linecap='round' stroke-linejoin='round'/></svg>">
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+  <main id="main">
+    <div class="section-head">
+      <div>
+        <h1 style="font-size:1.6rem;margin:0">Tất cả việc</h1>
+        <p class="muted" style="margin:2px 0 0">Tìm kiếm có dấu hay không dấu đều được (gõ "bao cao" vẫn ra "báo cáo").</p>
+      </div>
+      <button class="btn btn-primary" type="button" id="add-btn">+ Thêm việc</button>
+    </div>
+
+    <form class="card toolbar" id="filters" role="search" style="margin-top:14px" onsubmit="return false">
+      <div class="search">
+        <label for="q">Tìm kiếm</label>
+        <input type="search" id="q" placeholder="Tên việc, ghi chú, nhãn…">
+      </div>
+      <div>
+        <label for="f-priority-filter">Ưu tiên</label>
+        <select id="f-priority-filter"><option value="">Tất cả</option><option value="cao">Cao</option><option value="vua">Vừa</option><option value="thap">Thấp</option></select>
+      </div>
+      <div>
+        <label for="f-tag-filter">Nhãn</label>
+        <select id="f-tag-filter"><option value="">Tất cả</option></select>
+      </div>
+      <div>
+        <label for="f-from">Từ ngày</label>
+        <input type="date" id="f-from">
+      </div>
+      <div>
+        <label for="f-to">Đến ngày</label>
+        <input type="date" id="f-to">
+      </div>
+    </form>
+
+    <div class="tabs segmented" role="group" aria-label="Chế độ xem" id="views">
+      <button type="button" data-view="all" aria-pressed="true">Tất cả</button>
+      <button type="button" data-view="upcoming">Sắp tới</button>
+      <button type="button" data-view="nodate">Chưa xếp ngày</button>
+      <button type="button" data-view="unconfirmed">Chưa đánh dấu</button>
+      <button type="button" data-view="done">Đã xong</button>
+      <button type="button" data-view="let_go">Đã buông</button>
+      <button type="button" data-view="archived">Kho</button>
+    </div>
+    <p class="small muted" id="result-count" aria-live="polite"></p>
+    <div id="list"></div>
+  </main>
+
+  <script src="/js/common.js"></script>
+  <script src="/js/tasks.js"></script>
+</body>
+</html>

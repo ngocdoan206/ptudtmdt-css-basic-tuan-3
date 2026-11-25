@@ -1,0 +1,19 @@
+{
+  "name": "thong-tha-todo",
+  "version": "1.0.0",
+  "description": "Thong Thả – ứng dụng quản lý task cá nhân không áp lực, thiết kế dựa trên tâm lý học hành vi",
+  "main": "server.js",
+  "scripts": {
+    "start": "node --no-warnings server.js",
+    "seed": "node --no-warnings db/seed.js",
+    "test": "node --no-warnings --test \"tests/*.test.js\""
+  },
+  "engines": {
+    "node": ">=22.13.0"
+  },
+  "keywords": ["todo", "nodejs", "express", "sqlite"],
+  "license": "MIT",
+  "dependencies": {
+    "express": "^4.22.3"
+  }
+}

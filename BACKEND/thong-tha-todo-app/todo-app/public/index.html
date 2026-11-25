@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Hôm nay · Thong Thả</title>
+  <meta name="description" content="Thong Thả – quản lý việc cá nhân không áp lực">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect x='3' y='3' width='26' height='26' rx='8' fill='%23F7C948' stroke='%231D2A2C' stroke-width='2'/><path d='M10 16l4 4 8-9' fill='none' stroke='%231D2A2C' stroke-width='3' stroke-linecap='round' stroke-linejoin='round'/></svg>">
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+  <main id="main">
+    <!-- Banner video + thêm nhanh -->
+    <section class="hero" aria-labelledby="hello">
+      <video id="hero-video" autoplay muted loop playsinline preload="metadata" poster="/media/checklist-poster.jpg" aria-hidden="true">
+        <source src="/media/checklist.mp4" type="video/mp4">
+      </video>
+      <div class="hero-content">
+        <div>
+          <h1 id="hello">Chào bạn</h1>
+          <div class="date" id="today-label"></div>
+        </div>
+        <div class="chips" id="hero-chips"></div>
+        <form class="quick-add" id="quick-form" autocomplete="off">
+          <label for="quick-input" class="sr-only">Thêm nhanh một việc</label>
+          <input id="quick-input" type="text" maxlength="250"
+                 placeholder='Gõ nhanh, VD: "nộp báo cáo mai 9h #học !cao 45p"'>
+          <button class="btn btn-sun" type="submit">Thêm</button>
+          <button class="btn" type="button" id="detail-add">Thêm chi tiết</button>
+        </form>
+        <div class="parse-preview" id="parse-preview" aria-live="polite"></div>
+        <div class="parse-hint">Hiểu được: hôm nay · mai · ngày kia · thứ 2…cn · 25/12 · giờ 9h / 14h30 · thời lượng 30p / 1h30p / 2tieng · #nhãn · !cao !thap · ~nhe (việc nhẹ đầu)</div>
+      </div>
+    </section>
+
+    <!-- Thông báo: hôm qua, việc khởi động, tấm gương… -->
+    <div class="notices" id="notices"></div>
+
+    <div class="grid-today">
+      <div class="stack">
+        <section class="card capacity" id="capacity" aria-labelledby="cap-title">
+          <h2 id="cap-title">Sức chứa hôm nay</h2>
+          <div class="skeleton" aria-hidden="true"></div>
+        </section>
+
+        <section aria-labelledby="main-title">
+          <div class="section-head">
+            <h2 id="main-title">Việc chính</h2>
+            <div class="segmented" role="group" aria-label="Lọc nhanh">
+              <button type="button" data-mode="all" aria-pressed="true">Tất cả</button>
+              <button type="button" data-mode="fits">Tôi có 15 phút</button>
+              <button type="button" data-mode="tired">Tôi đang mệt</button>
+            </div>
+          </div>
+          <div class="task-list" id="main-list"></div>
+          <details id="done-wrap" style="margin-top:14px">
+            <summary class="muted" style="cursor:pointer;font-weight:600">Đã xong hôm nay</summary>
+            <div class="task-list" id="done-list" style="margin-top:10px"></div>
+          </details>
+        </section>
+      </div>
+
+      <aside class="stack side" aria-label="Thông tin bên lề">
+        <section class="card" aria-labelledby="bonus-title">
+          <h2 id="bonus-title">Nếu còn sức</h2>
+          <p class="small muted" style="margin-top:0">Việc thưởng: làm thì tốt, không làm cũng không sao.</p>
+          <div class="task-list" id="bonus-list"></div>
+        </section>
+        <section class="card" aria-labelledby="up-title">
+          <h2 id="up-title">Sắp tới cần để ý</h2>
+          <p class="small muted" style="margin-top:0">Cảnh báo tính theo khối lượng việc và giờ trống thực tế, không chỉ đếm ngày.</p>
+          <div class="task-list" id="up-list"></div>
+          <a href="/tasks" class="small" style="display:inline-block;margin-top:10px">Xem tất cả việc →</a>
+        </section>
+        <section class="card" aria-labelledby="close-title">
+          <h2 id="close-title">Khép ngày</h2>
+          <p class="small muted" style="margin-top:0">30 giây cuối ngày: đánh dấu Xong, Dời hoặc Buông cho từng việc.</p>
+          <button class="btn btn-primary" type="button" id="close-day-btn">Khép ngày</button>
+          <div class="small muted" id="close-day-time" style="margin-top:8px"></div>
+        </section>
+      </aside>
+    </div>
+  </main>
+
+  <script src="/js/common.js"></script>
+  <script src="/js/today.js"></script>
+</body>
+</html>

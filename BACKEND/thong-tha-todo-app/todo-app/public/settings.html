@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Cài đặt · Thong Thả</title>
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect x='3' y='3' width='26' height='26' rx='8' fill='%23F7C948' stroke='%231D2A2C' stroke-width='2'/><path d='M10 16l4 4 8-9' fill='none' stroke='%231D2A2C' stroke-width='3' stroke-linecap='round' stroke-linejoin='round'/></svg>">
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+  <main id="main" style="max-width:760px">
+    <h1 style="font-size:1.6rem">Cài đặt</h1>
+
+    <form class="card" id="settings-form" novalidate>
+      <div class="error" id="err" role="alert"></div>
+      <div class="row2">
+        <div class="field">
+          <label for="cap">Thời gian trống mặc định mỗi ngày (phút)</label>
+          <input type="number" id="cap" min="30" max="960" step="15">
+          <div class="hint">Dùng khi bạn chưa check-in. Sức chứa thật = số này ÷ hệ số trễ của bạn.</div>
+        </div>
+        <div class="field">
+          <label for="close">Giờ nhắc "Khép ngày"</label>
+          <input type="time" id="close">
+          <div class="hint">Chỉ một lời nhắc mỗi ngày, để bạn không bị nhờn thông báo.</div>
+        </div>
+      </div>
+      <div class="field">
+        <label style="display:flex;gap:10px;align-items:center;font-weight:600">
+          <input type="checkbox" id="mood" class="check"> Hỏi tâm trạng và năng lượng mỗi sáng (check-in 10 giây)
+        </label>
+      </div>
+      <div style="display:flex;gap:8px;flex-wrap:wrap">
+        <button class="btn btn-primary" type="submit">Lưu cài đặt</button>
+        <button class="btn" type="button" id="notify-btn">Cho phép thông báo trình duyệt</button>
+      </div>
+    </form>
+
+    <section class="card" style="margin-top:16px">
+      <h2>Quyền riêng tư</h2>
+      <ul class="muted" style="padding-left:18px;margin:0 0 12px">
+        <li>Mọi dữ liệu, kể cả tâm trạng, chỉ lưu trong file database trên máy này (thư mục <code>data/</code>).</li>
+        <li>App không chẩn đoán sức khoẻ tinh thần; câu hỏi tâm trạng chỉ để gợi ý khối lượng việc vừa sức.</li>
+        <li>App không dùng chuỗi ngày ép buộc, số đếm đỏ hay thông báo dồn dập.</li>
+      </ul>
+      <button class="btn" type="button" id="wipe-mood">Xoá toàn bộ dữ liệu tâm trạng</button>
+    </section>
+  </main>
+
+  <script src="/js/common.js"></script>
+  <script>
+    renderTopbar('settings');
+    const $ = s => document.querySelector(s);
+    const err = $('#err');
+
+    api('GET', '/api/settings').then(s => {
+      $('#cap').value = s.daily_capacity_min;
+      $('#close').value = s.close_day_time;
+      $('#mood').checked = s.mood_checkin_enabled;
+    }).catch(showError);
+
+    $('#settings-form').addEventListener('submit', async e => {
+      e.preventDefault();
+      err.classList.remove('show');
+      const cap = Number($('#cap').value);
+      if (!Number.isInteger(cap) || cap < 30 || cap > 960) { err.textContent = 'Thời gian trống phải là số nguyên từ 30 đến 960 phút.'; err.classList.add('show'); $('#cap').focus(); return; }
+      if (!$('#close').value) { err.textContent = 'Hãy chọn giờ Khép ngày.'; err.classList.add('show'); return; }
+      try {
+        await api('PUT', '/api/settings', { daily_capacity_min: cap, close_day_time: $('#close').value, mood_checkin_enabled: $('#mood').checked });
+        toast('Đã lưu cài đặt.');
+      } catch (ex) { err.textContent = ex.message; err.classList.add('show'); }
+    });
+    ['#cap', '#close'].forEach(s => $(s).addEventListener('input', () => err.classList.remove('show')));
+
+    $('#notify-btn').addEventListener('click', async () => {
+      if (!('Notification' in window)) { toast('Trình duyệt này không hỗ trợ thông báo.'); return; }
+      const p = await Notification.requestPermission();
+      toast(p === 'granted' ? 'Đã bật. App sẽ nhắc Khép ngày khi trang đang mở.' : 'Chưa được cấp quyền. App vẫn nhắc bằng thông báo trong trang.');
+    });
+
+    $('#wipe-mood').addEventListener('click', () => {
+      const dlg = openDialog('Xoá dữ liệu tâm trạng?', [el('p', {}, 'Mọi lần check-in tâm trạng và năng lượng sẽ bị xoá vĩnh viễn. Việc và lịch sử làm việc vẫn giữ nguyên.')], [
+        el('button', { class: 'btn', type: 'button', onclick: () => dlg.close() }, 'Huỷ'),
+        el('button', { class: 'btn btn-primary', type: 'button', onclick: async () => {
+          try { await api('DELETE', '/api/checkins'); dlg.close(); toast('Đã xoá dữ liệu tâm trạng.'); } catch (ex) { showError(ex); }
+        } }, 'Xoá')]);
+    });
+  </script>
+</body>
+</html>
